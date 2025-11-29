@@ -1,0 +1,83 @@
+import pandas as pd
+import glob
+import os
+
+# --- CONFIGURATION ---
+# Path to the folder containing the 12 monthly CSV files
+raw_data_folder = r"C:\Users\USER\Documents\DATA ANALYTICS PORTFOLIO\Cyclistic Case Study\Raw Data"
+# Path where the final cleaned CSV will be saved
+output_file = r"C:\Users\USER\Documents\DATA ANALYTICS PORTFOLIO\Cyclistic Case Study\data\cyclistic_annual_clean.csv"
+
+# --- 1. LOAD AND MERGE DATA ---
+print("Step 1: Loading and merging data files...")
+
+# Verify folder exists
+if not os.path.exists(raw_data_folder):
+    print(f"Error: The folder {raw_data_folder} does not exist.")
+    exit()
+
+all_files = glob.glob(os.path.join(raw_data_folder, "*.csv"))
+print(f"Found {len(all_files)} files to merge.")
+
+df_list = []
+
+for filename in all_files:
+    print(f"Reading file: {os.path.basename(filename)}")
+    try:
+        # Load only necessary columns to optimize memory usage
+        current_df = pd.read_csv(filename, usecols=['ride_id', 'rideable_type', 'started_at', 'ended_at', 
+                                                    'member_casual', 'start_station_name', 'end_station_name'])
+        df_list.append(current_df)
+    except Exception as e:
+        print(f"Error reading {filename}: {e}")
+
+if not df_list:
+    print("No data loaded. Exiting.")
+    exit()
+
+full_df = pd.concat(df_list, axis=0, ignore_index=True)
+print(f"Merge complete. Total raw rows: {len(full_df):,}")
+
+# --- 2. DATA TRANSFORMATION ---
+print("Step 2: Transforming data (converting dates and calculating metrics)...")
+
+# Convert timestamp columns to datetime objects
+# errors='coerce' turns invalid formats into NaT (Not a Time) so they can be removed later
+full_df['started_at'] = pd.to_datetime(full_df['started_at'], errors='coerce')
+full_df['ended_at'] = pd.to_datetime(full_df['ended_at'], errors='coerce')
+
+# Calculate Ride Length (in minutes)
+full_df['ride_length'] = (full_df['ended_at'] - full_df['started_at']).dt.total_seconds() / 60
+
+# Extract Day of Week and Month
+full_df['day_of_week'] = full_df['started_at'].dt.day_name()
+full_df['month'] = full_df['started_at'].dt.month_name()
+
+# --- 3. DATA CLEANING ---
+print("Step 3: Cleaning data...")
+initial_count = len(full_df)
+
+# Remove rides with negative duration or length less than 1 minute (technical errors)
+clean_df = full_df[full_df['ride_length'] > 1].copy()
+
+# Remove rows with missing timestamps
+clean_df = clean_df.dropna(subset=['started_at', 'ended_at'])
+
+# Remove duplicate ride IDs
+clean_df = clean_df.drop_duplicates(subset=['ride_id'])
+
+# Calculate cleaning statistics
+final_count = len(clean_df)
+removed_count = initial_count - final_count
+
+print(f"Data cleaning complete.")
+print(f"Original Rows: {initial_count:,}")
+print(f"Clean Rows: {final_count:,}")
+print(f"Rows Removed: {removed_count:,}")
+
+# --- 4. EXPORT ---
+print(f"Step 4: Saving cleaned file to {output_file}...")
+os.makedirs(os.path.dirname(output_file), exist_ok=True)
+clean_df.to_csv(output_file, index=False)
+
+print("Process completed successfully.")
