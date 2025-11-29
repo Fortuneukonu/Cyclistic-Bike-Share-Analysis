@@ -4,9 +4,11 @@ import os
 
 # --- CONFIGURATION ---
 # Path to the folder containing the 12 monthly CSV files
+# Make sure your raw files are inside this folder
 raw_data_folder = r"C:\Users\USER\Documents\DATA ANALYTICS PORTFOLIO\Cyclistic Case Study\Raw Data"
+
 # Path where the final cleaned CSV will be saved
-output_file = r"C:\Users\USER\Documents\DATA ANALYTICS PORTFOLIO\Cyclistic Case Study\data\cyclistic_annual_clean.csv"
+output_file = r"C:\Users\USER\Documents\DATA ANALYTICS PORTFOLIO\Cyclistic Case Study\Working Data\cyclistic_annual_clean.csv"
 
 # --- 1. LOAD AND MERGE DATA ---
 print("Step 1: Loading and merging data files...")
@@ -70,14 +72,18 @@ clean_df = clean_df.drop_duplicates(subset=['ride_id'])
 final_count = len(clean_df)
 removed_count = initial_count - final_count
 
-print(f"Data cleaning complete.")
+print("Data cleaning complete.")
 print(f"Original Rows: {initial_count:,}")
 print(f"Clean Rows: {final_count:,}")
 print(f"Rows Removed: {removed_count:,}")
 
 # --- 4. EXPORT ---
 print(f"Step 4: Saving cleaned file to {output_file}...")
+
+# Check if the output directory exists, if not, create it
 os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+# Save the file
 clean_df.to_csv(output_file, index=False)
 
-print("Process completed successfully.")
+print("Process completed successfully. File saved.")
