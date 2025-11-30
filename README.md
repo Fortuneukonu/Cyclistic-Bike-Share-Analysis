@@ -53,7 +53,7 @@ Based on the analysis, the following strategies are recommended to convert casua
 3.  **Leisure Incentives:** Offer member-only benefits that appeal to leisure riders, such as extended ride time limits on weekends (e.g., 45 minutes instead of 30), to incentivize upgrades without impacting weekday commuter availability.
 
 ## Repository Structure
-* **01_Data:** Documentation on data sources and access links.
-* **02_Scripts:** Python code used for data processing and visualization.
-* **03_Visualizations:** Output charts generated from the analysis.
-* **04_Reports:** Final project documentation.
+* **Data:** Documentation on data sources and access links.
+* **Notebook:** Python code used for data processing and visualization.
+* **Visualization:** Output charts generated from the analysis.
+* **Report:** Final project documentation.
