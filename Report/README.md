@@ -1,7 +1,7 @@
 # Cyclistic Bike-Share: Marketing Strategy Report
 
 **Date:** November 30, 2025
-**Prepared By:** [Your Name]
+**Prepared By:** Fortune Chiemela Ukonu
 **Role:** Junior Data Analyst
 **Stakeholders:** Lily Moreno (Director of Marketing), Cyclistic Executive Team
 
@@ -32,21 +32,21 @@ There is a fundamental difference in when the two groups ride. Casual ridership 
 
 **Conclusion:** Casual riders are "Weekend Warriors" using the service for leisure, whereas Members are utilizing the bikes for reliable weekday transportation.
 
-![Weekly Usage](../03_Visualizations/weekly_usage.png)
+![Weekly Usage](../Visualization/weekly_usage.png)
 
 ### Finding 2: Usage by Hour of Day
 Hourly data confirms the commuting hypothesis. Annual Members exhibit two distinct usage spikes at 8:00 AM and 5:00 PM (17:00), aligning with standard business hours. Casual riders show a gradual increase in activity throughout the day, peaking in the late afternoon (3:00 PM – 5:00 PM) without a morning spike.
 
 **Conclusion:** Members are using bikes to commute to work or school. Casual riders are likely avoiding rush hour traffic and riding for recreation.
 
-![Hourly Heartbeat](../03_Visualizations/hourly_heartbeat.png)
+![Hourly Heartbeat](../Visualization/hourly_heartbeat.png)
 
 ### Finding 3: Seasonal Trends
 Both groups ride more frequently in the summer months. However, casual ridership is highly elastic based on season; it drops near zero in the winter months (December–February). Annual Members maintain a baseline level of activity throughout the winter.
 
 **Conclusion:** Casual riders are weather-sensitive. Members rely on the service year-round, further supporting the evidence that it is their primary mode of transport.
 
-![Seasonality](../03_Visualizations/seasonality_fixed.png)
+![Seasonality](../Visualization/seasonality_fixed.png)
 
 ## 5. Recommendations
 Based on the data-driven insights above, the following three strategies are recommended to convert casual riders into annual members:
