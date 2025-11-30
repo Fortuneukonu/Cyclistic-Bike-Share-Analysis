@@ -43,7 +43,7 @@ Hourly data reveals distinct usage spikes for Members at 8 AM and 5 PM, confirmi
 ### 3. Seasonality
 Casual ridership declines significantly during winter months (December through February), while Members continue to use the service. This indicates that casual riders are more sensitive to weather conditions, whereas members rely on the service for essential transport.
 
-![Seasonality Chart](Visualization/seasonality_fixed.png)
+![Seasonality Chart](Visualization/seasonality.png)
 
 ## Strategic Recommendations
 Based on the analysis, the following strategies are recommended to convert casual riders:
