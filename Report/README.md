@@ -46,7 +46,7 @@ Both groups ride more frequently in the summer months. However, casual ridership
 
 **Conclusion:** Casual riders are weather-sensitive. Members rely on the service year-round, further supporting the evidence that it is their primary mode of transport.
 
-![Seasonality](../Visualization/seasonality_fixed.png)
+![Seasonality](../Visualization/seasonality.png)
 
 ## 5. Recommendations
 Based on the data-driven insights above, the following three strategies are recommended to convert casual riders into annual members:
