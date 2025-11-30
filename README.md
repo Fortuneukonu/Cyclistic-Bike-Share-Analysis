@@ -33,17 +33,17 @@ The analysis is based on 12 months of historical trip data (5.5 million rows). D
 ### 1. Weekly Usage Patterns
 Casual ridership peaks significantly on Saturdays and Sundays, whereas Annual Members exhibit consistent usage throughout the work week. This suggests casual riders use the service primarily for leisure activities.
 
-![Weekly Usage Chart](03_Visualizations/weekly_usage.png)
+![Weekly Usage Chart](Visualizations/weekly_usage.png)
 
 ### 2. Hourly Usage Patterns
 Hourly data reveals distinct usage spikes for Members at 8 AM and 5 PM, confirming a commuting use case. In contrast, Casual riders demonstrate a gradual increase in usage throughout the day, peaking in the late afternoon.
 
-![Hourly Heartbeat](03_Visualizations/hourly_heartbeat.png)
+![Hourly Heartbeat](Visualizations/hourly_heartbeat.png)
 
 ### 3. Seasonality
 Casual ridership declines significantly during winter months (December through February), while Members continue to use the service. This indicates that casual riders are more sensitive to weather conditions, whereas members rely on the service for essential transport.
 
-![Seasonality Chart](03_Visualizations/seasonality_fixed.png)
+![Seasonality Chart](Visualizations/seasonality_fixed.png)
 
 ## Strategic Recommendations
 Based on the analysis, the following strategies are recommended to convert casual riders:
